@@ -20,7 +20,8 @@ imgData, err := goemojipic.GetGooglePics("🥰")
 
 # memo
 
-Apple & Google emoji images are extracted by `go run script/main.go`
+* Apple & Google emoji images are extracted by `go run script/main.go`
+* emoji parsing using https://github.com/Andrew-M-C/go.emoji
 
 # Reference
 
