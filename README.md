@@ -7,7 +7,7 @@ texts := goemojipic.SplitEmojiString("a 🥰 b")
 // texts will a slice of EmojiString
 // texts[0].Text == "a " texts[0].IsEmoji == false
 // texts[1].Text == "🥰" texts[1].IsEmoji == true
-// texts[2].Text == "b " texts[2].IsEmoji == true
+// texts[2].Text == "b" texts[2].IsEmoji == false
 
 imgData, err := goemojipic.GetApplePics("🥰")
 // imgData: 72x72 png bytes from Apple's font
