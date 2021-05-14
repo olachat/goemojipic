@@ -22,22 +22,26 @@ func getCode(text string) string {
 	return code
 }
 
-func GetApplePics(emoji string) ([]byte, error) {
+// GetApplePic returns 72*72 png bytes from Apple's font if emoji is found
+func GetApplePic(emoji string) ([]byte, error) {
 	code := getCode(emoji)
 
 	return applePics.ReadFile("apple/" + code + ".png")
 }
 
-func GetGooglePics(emoji string) ([]byte, error) {
+// GetGooglePic returns 72*72 png bytes from Google's font if emoji is found
+func GetGooglePic(emoji string) ([]byte, error) {
 	code := getCode(emoji)
 	return googlePics.ReadFile("google/" + code + ".png")
 }
 
+// EmojiString stores a Text, and indicate if the Text IsEmoji
 type EmojiString struct {
 	Text    string
 	IsEmoji bool
 }
 
+// SplitEmojiString split given string emoji & non-emoji string, returning slice of EmojiString
 func SplitEmojiString(s string) (result []EmojiString) {
 	buff := bytes.Buffer{}
 	nextIndex := 0
