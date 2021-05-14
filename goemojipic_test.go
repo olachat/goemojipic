@@ -5,14 +5,16 @@ import (
 	"testing"
 )
 
-func TestApple(t *testing.T) {
-	runes := []rune("🌈😃🥰🌍🍞🚗📞🎉🐎🍆🏁🐘🐧🐼")
+func TestSplit(t *testing.T) {
+	data := SplitEmojiString("a 🥰 b🌈😃🥰🌍🍞🚗📞🇨🇮🏴󠁧󠁢󠁷󠁬󠁳󠁿3️⃣🎉🐎🍆🏁🐘🐧🐼")
 
-	for i := 0; i < len(runes); i++ {
-		img, err := GetApplePics(runes[i])
-		if err != nil {
-			t.Error(err)
+	for _, str := range data {
+		if str.IsEmoji {
+			img, err := GetApplePics(str.Text)
+			if err != nil {
+				t.Error(err)
+			}
+			fmt.Printf("img loaded %d\n", len(img))
 		}
-		fmt.Printf("img loaded %d\n", len(img))
 	}
 }
