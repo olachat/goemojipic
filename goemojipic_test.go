@@ -6,9 +6,13 @@ import (
 )
 
 func TestApple(t *testing.T) {
-	img, err := GetApplePics("U+00A9")
-	if err != nil {
-		t.Error(err)
+	runes := []rune("🌈😃🥰🌍🍞🚗📞🎉🐎🍆🏁🐘🐧🐼")
+
+	for i := 0; i < len(runes); i++ {
+		img, err := GetApplePics(runes[i])
+		if err != nil {
+			t.Error(err)
+		}
+		fmt.Printf("img loaded %d\n", len(img))
 	}
-	fmt.Printf("img loaded %d", len(img))
 }

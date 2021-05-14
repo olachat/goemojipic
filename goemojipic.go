@@ -1,6 +1,9 @@
 package goemojipic
 
-import "embed"
+import (
+	"embed"
+	"fmt"
+)
 
 //go:embed apple/*
 var applePics embed.FS
@@ -8,10 +11,12 @@ var applePics embed.FS
 //go:embed google/*
 var googlePics embed.FS
 
-func GetApplePics(emoji string) ([]byte, error) {
-	return applePics.ReadFile("apple/" + emoji + ".png")
+func GetApplePics(emoji rune) ([]byte, error) {
+	code := fmt.Sprintf("%U", emoji)
+	return applePics.ReadFile("apple/" + code + ".png")
 }
 
-func GetGooglePics(emoji string) ([]byte, error) {
-	return googlePics.ReadFile("google/" + emoji + ".png")
+func GetGooglePics(emoji rune) ([]byte, error) {
+	code := fmt.Sprintf("%U", emoji)
+	return googlePics.ReadFile("google/" + code + ".png")
 }
