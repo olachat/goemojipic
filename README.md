@@ -1,5 +1,7 @@
 # goemojipic
 
+Required `go 1.16` or above; as [embed](https://golang.org/doc/go1.16#library-embed) is used.
+
 `go get https://github.com/olachat/goemojipic` to install
 
 ```go
